@@ -1,12 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 	@@include('html/_head.htm',{
-	"title":"VbDev GULP start"
+	"title":"Portfolio Front-end Developer (Ivan Bas)"
 	})
 	<body>
 		<div class="wrapper">
 			@@include('html/_header.htm',{})
 			<main class="page">
+				<section class="hero">
+					<div class="hero__container">
+						<h1 class="hero__title">Hello, my name is Ivan Bas and I’m <span>WordPress developer</span></h1>
+						<p class="hero__subtitle">I’m create responsive websites using Html, Css, Js and WordPress</p>
+						<div class="hero__buttons">
+							<a href="" class="hero__button-contact button">Contact</a>
+							<a href="" class="hero__button-discover">Discover my works</a>
+						</div>
+					</div>
+				</section>
+				<section class="about">
+					<div class="about__container">
+						<h2 class="about__title title"><span>#</span>About</h2>
+						<div class="about__bottom">
+							<div class="about__bottom-wrapper">
+								<p class="about__bottom-subtitle">
+									Hello! My name is Ivan. I'm involved in creating websites and subsequently deploying them on <a href="https://wordpress.org/">WordPress</a>. I started working on website development in early 2023.
+								</p>
+								<p class="about__bottom-subtitle">
+									Currently, I am engaged in supporting website for a technical college <a href="https://terranova.edu.pl/">TerraNova</a>.
+								</p>
+								<p class="about__bottom-subtitle">
+									Here are a few technologies I’ve been working with recently:
+								</p>
+								<div class="about__bottom-skills">
+									<ul>
+										<li>Html</li>
+										<li>Css</li>
+										<li>Scss</li>
+									</ul>
+									<ul>
+										<li>JavaScript (ES6+)</li>
+										<li>PHP</li>
+										<li>WordPress</li>
+									</ul>
+									<ul>
+										<li>Gulp</li>
+										<li>WebPack</li>
+										<li>TailwindCss</li>
+									</ul>
+								</div>
+							</div>
+							<div class="about__bottom-picture">
+								<img src="@img/content/about-content.svg" alt="">
+							</div>
+						</div>
+					</div>
+				</section>
 			</main>
 			@@include('html/_footer.htm',{})
 		</div>
