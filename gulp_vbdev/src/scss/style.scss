@@ -7,9 +7,6 @@
 //&display=swap - добавить при подключении через плагин
 @import url(https://fonts.googleapis.com/css?family=JetBrains+Mono:300,regular,500&display=swap);
 
-@import url(https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
-
-
 // Подключить если есть локальные файлы шрифтов
 //@import "fonts/fonts";
 
@@ -28,7 +25,7 @@ $accentColor: #00C2FF;
 $grayColor: #919191;
 $grayBgColor: #232323;
 
-$secondFont: "SF Pro Display";
+$secondFont: -apple-system, "SF Pro Display";
 
 // НАСТРОЙКИ ===============================================================================================================================================================================================================================================================================================
 // Минимальная ширина страницы
