@@ -4,7 +4,7 @@
    padding: 25px 0;
    position: fixed;
    width: 100%;
-   z-index: 1;
+   z-index: 10;
    background-color: #101010d4;
    backdrop-filter: blur(5px);
    -webkit-backdrop-filter: blur(5px);
@@ -78,10 +78,12 @@
       color: $grayColor;
       font-size: 16px;
       font-weight: 500;
+      padding: 16px 0;
 
       transition: color .3s ease;
       
-      span {
+      &::before {
+         content: "#";
          color: $grayColor;
 
          transition: color .3s ease;
@@ -91,7 +93,7 @@
          &:hover {
             color: #fff;
 
-            span {
+            &::before {
                color: $accentColor;
             }
          }
@@ -172,7 +174,7 @@
 
 ._active {
    color: #fff;
-   span {
+   &::before {
       color: $accentColor;
    }
 }
