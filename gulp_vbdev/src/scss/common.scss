@@ -8,11 +8,118 @@
    background: $grayBgColor;
 }
 
+body {
+   letter-spacing: -0.2px;
+}
 //===================================/SCROLL-BAR=====================================================================================================================
 
 //===================================LINKS=====================================================================================================================
 
-//===================================LINKS=====================================================================================================================
+.contact-links {
+   position: fixed;
+   bottom: 80px;
+   width: 100%;
+
+   @media (max-width: 1290px) {
+      position: relative;
+   }
+   // .contact-links__container
+
+   &__container {
+      max-width: 100%;
+
+      display: flex;
+      justify-content: space-between;
+   }
+
+   // .contact-links__buttons
+
+   &__buttons {
+      position: relative;
+      ul {
+         @media (max-width: 1290px) {
+            flex-direction: row;
+            justify-content: center;
+            padding-bottom: 8px;
+         }
+         display: flex;
+         flex-direction: column;
+         gap: 2px;
+      }
+      svg {
+         width: 20px;
+         height: 20px;
+
+         transition: transform 0.3s ease;
+
+         path {
+            transition: stroke 0.3s ease;
+         }
+      }
+      &::after {
+         position: absolute;
+         display: flex;
+         content: "";
+         background-color: $grayColor;
+         height: 100%;
+         width: 1px;
+         top: 190px;
+         left: 47%;
+
+         @media (max-width: 1290px) {
+            content: none;
+         }
+      }
+
+      a {
+         padding: 10px;
+         display: inline-block;
+         @include hover {
+            svg {
+               transform: translateY(-3px);
+               path {
+                  stroke: $accentColor;
+               }
+            }
+         }
+      }
+   }
+
+   // .contact-links__email
+
+   &__email {
+      transform: rotate(90deg);
+      font-size: 13px;
+      color: $grayColor;
+
+      @media (max-width: 1290px) {
+         display: none;
+      }
+
+      a {
+         display: inline-block;
+         padding: 10px 14px;
+         transition: color 0.3s ease, transform 0.3s ease;
+         @include hover {
+            color: $accentColor;
+            transform: translateX(-3px);
+         }
+      }
+
+      &::after {
+         position: absolute;
+         display: flex;
+         content: "";
+         background-color: $grayColor;
+         height: 1px;
+         width: 100%;
+         top: 17px;
+         right: -105%;
+      }
+   }
+}
+
+//===================================/LINKS=====================================================================================================================
 
 //===================================BUTTON=====================================================================================================================
 
@@ -45,7 +152,7 @@ body {
 
 .page {
    transition: filter 0.6s;
-   color: #dfdfdf;
+   color: #b2b7ba;
 }
 
 //===================================HERO=====================================================================================================================
@@ -58,6 +165,7 @@ body {
 
    // .hero__suptitle
    &__container {
+      width: 100%;
    }
 
    &__suptitle {
@@ -78,27 +186,28 @@ body {
 
       font-family: $secondFont;
       font-weight: 800;
-      @include adaptiveValue("font-size", 80, 47);
-      color: #dfdfdf;
+      @include adaptiveValue("font-size", 70, 47);
+      letter-spacing: -0.5;
+      color: #b2b7ba;
 
       span {
-         color: #ababab;
+         color: #b2b7bab4;
          padding-top: 8px;
-         @include adaptiveValue("font-size", 72, 42);
+         @include adaptiveValue("font-size", 70, 42);
       }
    }
 
    // .hero__subtitle
 
    &__subtitle {
-      max-width: 620px;
+      max-width: 550px;
       @include adaptiveValue("padding-bottom", 48, 32);
 
       font-family: $secondFont;
-      font-weight: 400;
-      @include adaptiveValue("font-size", 17, 15);
+      font-weight: 500;
+      text-align-last: left;
+      font-size: 18px;
       line-height: 133%;
-      letter-spacing: 0.07em;
       color: $grayColor;
 
       a {
@@ -258,7 +367,7 @@ body {
    line-height: 42px;
    text-align: left;
 
-   color: #dfdfdf;
+   color: #b2b7ba;
 
    &::before {
       content: "#";
@@ -285,7 +394,7 @@ body {
 }
 
 .works {
-   padding-bottom: 112px;
+   padding-bottom: 128px;
    // .works__container
 
    &__container {
@@ -497,6 +606,7 @@ body {
       border-radius: 5px;
       grid-column: 6 / -1;
       grid-row: 1 / -1;
+      transition: transform 0.3s ease;
 
       @media screen and (max-width: 768px) {
          height: 100%;
@@ -510,6 +620,7 @@ body {
          img {
             filter: none;
          }
+         transform: translateY(-5px);
       }
 
       img {
@@ -581,6 +692,8 @@ body {
 //===================================MORE=====================================================================================================================
 
 .more {
+   padding-bottom: 128px;
+
    // .more__container
 
    &__container {
@@ -589,7 +702,22 @@ body {
    // .more__title
 
    &__title {
+      padding-bottom: 8px;
+
+      font-family: $secondFont;
+      font-weight: 700;
+      font-size: 24px;
+      color: #b2b7ba;
+      text-align: center;
+   }
+
+   &__subtitle {
       padding-bottom: 64px;
+
+      font-weight: 500;
+      font-size: 15px;
+      color: $accentColor;
+      text-align: center;
    }
 
    // .more__cards
@@ -684,9 +812,8 @@ body {
    &__card-title {
       display: inline-block;
       font-weight: 700;
-      font-size: 24px;
-      letter-spacing: -0.04em;
-      color: #dfdfdf;
+      font-size: 27px;
+      color: #b2b7ba;
 
       padding-bottom: 24px;
 
@@ -729,3 +856,57 @@ body {
 }
 
 //===================================/MORE=====================================================================================================================
+
+//===================================CONTACT=====================================================================================================================
+
+.contact {
+   @include adaptiveValue("padding-bottom", 232, 152);
+   // .contact__container
+
+   &__container {
+      text-align: center;
+   }
+
+   // .contact__suptitle
+
+   &__suptitle {
+      font-weight: 500;
+      font-size: 15px;
+      color: $accentColor;
+
+      padding-bottom: 8px;
+   }
+
+   // .contact__title
+
+   &__title {
+      font-weight: 700;
+      font-size: 40px;
+      font-family: $secondFont;
+      color: #b2b7ba;
+
+      padding-bottom: 16px;
+   }
+
+   // .contact__subtitle
+
+   &__subtitle {
+      max-width: 540px;
+      margin: 0 auto;
+      padding-bottom: 40px;
+
+      font-family: $secondFont;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 133%;
+      color: $grayColor;
+   }
+
+   // .contact__button
+
+   &__button {
+      padding: 16px 64px;
+   }
+}
+
+//===================================/CONTACT=====================================================================================================================
