@@ -15,107 +15,95 @@ body {
 
 //===================================LINKS=====================================================================================================================
 
-.contact-links {
+.social-links {
    position: fixed;
-   bottom: 80px;
-   width: 100%;
-
-   @media (max-width: 1290px) {
-      position: relative;
+   bottom: 0;
+   left: 27px;
+   bottom: 100px;
+   @media (max-width: 1260px) {
+      display: none;
    }
-   // .contact-links__container
+}
+.social-list {
+   position: relative;
+   &::after {
+      position: absolute;
+      content: "";
+      background-color: $grayColor;
+      width: 1px;
+      height: 200px;
+      bottom: -224px;
+      left: 17px;
+   }
+   display: flex;
+   flex-direction: column;
+   gap: 4px;
 
-   &__container {
-      max-width: 100%;
+   @media (max-width: 1260px) {
+      flex-direction: row;
+      justify-content: center;
+      padding-bottom: 12px;
 
-      display: flex;
-      justify-content: space-between;
+      &::after {
+         content: none;
+      }
    }
 
-   // .contact-links__buttons
+   a {
+      display: inline-block;
+      padding: 8px;
 
-   &__buttons {
-      position: relative;
-      ul {
-         @media (max-width: 1290px) {
-            flex-direction: row;
-            justify-content: center;
-            padding-bottom: 8px;
+      transition: transform 0.3s ease;
+      @include hover {
+         transform: translateY(-3px);
+         svg {
+            path {
+               stroke: $accentColor;
+            }
          }
-         display: flex;
-         flex-direction: column;
-         gap: 2px;
       }
       svg {
          width: 20px;
          height: 20px;
-
-         transition: transform 0.3s ease;
-
          path {
             transition: stroke 0.3s ease;
          }
       }
-      &::after {
-         position: absolute;
-         display: flex;
-         content: "";
-         background-color: $grayColor;
-         height: 100%;
-         width: 1px;
-         top: 190px;
-         left: 47%;
+   }
+}
 
-         @media (max-width: 1290px) {
-            content: none;
-         }
-      }
+.email-link {
+   @media (max-width: 1260px) {
+      display: none;
+   }
+   position: fixed;
+   bottom: 0;
+   right: -38px;
+   bottom: 190px;
+   a {
+      display: inline-block;
 
-      a {
-         padding: 10px;
-         display: inline-block;
-         @include hover {
-            svg {
-               transform: translateY(-3px);
-               path {
-                  stroke: $accentColor;
-               }
-            }
-         }
+      transition:
+         transform 0.3s ease,
+         color 0.3s ease;
+      @include hover {
+         transform: translateX(-3px);
+         color: $accentColor;
       }
    }
+}
 
-   // .contact-links__email
-
-   &__email {
-      transform: rotate(90deg);
-      font-size: 13px;
-      color: $grayColor;
-
-      @media (max-width: 1290px) {
-         display: none;
-      }
-
-      a {
-         display: inline-block;
-         padding: 10px 14px;
-         transition: color 0.3s ease, transform 0.3s ease;
-         @include hover {
-            color: $accentColor;
-            transform: translateX(-3px);
-         }
-      }
-
-      &::after {
-         position: absolute;
-         display: flex;
-         content: "";
-         background-color: $grayColor;
-         height: 1px;
-         width: 100%;
-         top: 17px;
-         right: -105%;
-      }
+.email-wrapper {
+   position: relative;
+   transform: rotate(90deg);
+   &::after {
+      position: absolute;
+      content: "";
+      background-color: $grayColor;
+      width: 100%;
+      height: 1px;
+      bottom: 5px;
+      left: 205px;
    }
 }
 
@@ -135,8 +123,8 @@ body {
    border: 1px solid $accentColor;
    border-radius: 5px;
    transition:
-      box-shadow 0.2s,
-      transform 0.2s;
+      box-shadow 0.3s,
+      transform 0.3s;
 
    @include hover {
       box-shadow: 3px 3px $accentColor;
@@ -174,7 +162,7 @@ body {
       font-size: 16px;
 
       padding-bottom: 16px;
-      margin-left: 3px;
+      @include adaptiveValue("margin-left", 3, 1);
    }
 
    // .hero__title
@@ -235,7 +223,7 @@ body {
 //===================================ABOUT=====================================================================================================================
 
 .about {
-   padding-bottom: 112px;
+   margin-bottom: 112px;
 
    // .about__container
 
@@ -258,8 +246,14 @@ body {
       justify-content: space-between;
       gap: 30px;
 
-      @media (max-width: 768px) {
-         gap: 0;
+      @media (max-width: 695px) {
+         flex-direction: column;
+         align-items: start;
+      }
+
+      @media (max-width: 500px) {
+         flex-direction: column;
+         align-items: center;
       }
    }
 
@@ -286,6 +280,7 @@ body {
       a {
          color: $accentColor;
 
+         display: inline-block;
          position: relative;
          &::before {
             position: absolute;
@@ -296,7 +291,7 @@ body {
             bottom: 0;
             left: 0;
 
-            transition: width 0.2s ease;
+            transition: width 0.3s ease;
          }
 
          @include hover {
@@ -304,10 +299,6 @@ body {
                width: 100%;
             }
          }
-      }
-
-      @media (max-width: 768px) {
-         max-width: 100%;
       }
 
       @media (max-width: 370px) {
@@ -349,12 +340,9 @@ body {
    // .about__bottom-picture
 
    &__bottom-picture {
+      
       img {
-         max-width: 100%;
-      }
-
-      @media (max-width: 768px) {
-         display: none;
+         width: 100%;
       }
    }
 }
@@ -394,7 +382,7 @@ body {
 }
 
 .works {
-   padding-bottom: 128px;
+   margin-bottom: 128px;
    // .works__container
 
    &__container {
@@ -431,7 +419,7 @@ body {
       @include tablet {
          border: 1px solid #1d1d1d;
          border-radius: 5px;
-         &:hover {
+         @media (hover: hover) {
             transform: translateY(-5px);
          }
       }
@@ -692,7 +680,7 @@ body {
 //===================================MORE=====================================================================================================================
 
 .more {
-   padding-bottom: 128px;
+   margin-bottom: 128px;
 
    // .more__container
 
@@ -860,7 +848,8 @@ body {
 //===================================CONTACT=====================================================================================================================
 
 .contact {
-   @include adaptiveValue("padding-bottom", 232, 152);
+   @include adaptiveValue("margin-bottom", 120, 80);
+   z-index: 2;
    // .contact__container
 
    &__container {

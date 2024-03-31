@@ -103,4 +103,10 @@
 			@content;
 		}
 	}
+
+	@media (hover: none) {
+		&:active {
+			@content;
+		}
+	}
 }
