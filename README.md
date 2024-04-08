@@ -1,5 +1,4 @@
-# [Portfolio Web Site](https://vanbasx.github.io/Landing-LaslesVPN/)
-
+# [Portfolio Web Site](https://vanbasx.github.io/PortfolioV2/)
 This repository contains the source code for the Personal Web Site, a responsive web page built using Gulp, Webpack, HTML, CSS (with SCSS) and JavaScript.
 
 
