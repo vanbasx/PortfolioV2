@@ -200,8 +200,28 @@ body {
       color: $grayColor;
 
       a {
-         display: inline-block;
+         position: relative;
          color: $accentColor;
+
+         display: inline-block;
+
+         &::before {
+            position: absolute;
+            content: "";
+            width: 0;
+            height: 1px;
+            background-color: $accentColor;
+            bottom: 2px;
+            left: 0;
+
+            transition: width 0.3s ease;
+         }
+
+         @include hover {
+            &::before {
+               width: 100%;
+            }
+         }
       }
    }
 
@@ -341,7 +361,7 @@ body {
    // .about__bottom-picture
 
    &__bottom-picture {
-      
+      max-width: 365px;
       img {
          width: 100%;
       }
