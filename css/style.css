@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=JetBrains+Mono:300,regular,500&display=swap);
-@import url(https://fonts.cdnfonts.com/css/sf-pro-display);
+
+@import url(https://v1.fontapi.ir/css/SFProDisplay);
 
 @charset "UTF-8";
 
@@ -361,8 +362,21 @@ body {
 }
 
 .hero__subtitle a {
-  display: inline-block;
+  position: relative;
   color: #00C2FF;
+  display: inline-block;
+}
+
+.hero__subtitle a::before {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 1px;
+  background-color: #00C2FF;
+  bottom: 2px;
+  left: 0;
+  -webkit-transition: width 0.3s ease;
+  transition: width 0.3s ease;
 }
 
 .hero__button {
@@ -467,6 +481,10 @@ body {
   top: -2px;
   left: -3px;
   color: #00C2FF;
+}
+
+.about__bottom-picture {
+  max-width: 365px;
 }
 
 .about__bottom-picture img {
@@ -1288,6 +1306,10 @@ body {
             transform: translate(-3px, -3px);
   }
 
+  .hero__subtitle a:hover::before {
+    width: 100%;
+  }
+
   .about__bottom-subtitle a:hover::before {
     width: 100%;
   }
@@ -1362,6 +1384,10 @@ body {
     -webkit-transform: translate(-3px, -3px);
         -ms-transform: translate(-3px, -3px);
             transform: translate(-3px, -3px);
+  }
+
+  .hero__subtitle a:active::before {
+    width: 100%;
   }
 
   .about__bottom-subtitle a:active::before {
